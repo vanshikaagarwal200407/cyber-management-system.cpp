@@ -66,8 +66,9 @@ int n;
             getline(cin,status[total_threats]);
             total_threats++;
         }
+        cout<<"the threat has been added successfully\n";
     }
-    cout<<"the threat has been added successfully\n";
+    
     savethreats();
 }
 
@@ -154,7 +155,7 @@ void deleteThreat(){
     }
     for(int i=0;i<total_threats;i++){
         if(id==threat_id[i]){
-            bool found=true;
+            found=true;
             for(int j=i;j<total_threats-1;j++){
             threat_id[j]=threat_id[j+1];
             threat_name[j]=threat_name[j+1];
@@ -162,6 +163,7 @@ void deleteThreat(){
             severity[j]=severity[j+1];
             status[j]=status[j+1];
             }
+            break;
             }
     }
     if(!found){
@@ -242,7 +244,9 @@ int main(){
    if(user_name== "Cyber" && password== "Cyber20"){
     cout<<"login successful\n";
     is_logged_in=true;
-   } else{
+       break;
+   } 
+     else{
     attempt++;
     cout<<"invalid username or password! please try again\n";
    }
@@ -250,9 +254,8 @@ int main(){
 }
     if(attempt>=3){
         cout<<"maximum number of attempts reached.exiting the programme.\n";
-        
+        return 0;
    }
-
    do{
     option=menuDriven();
     switch(option){
